@@ -62,20 +62,25 @@ public:
 class Solution {
 public:
   
-  Node* removeDuplicates(Node *head) {
-    if (head == NULL) {
-      return head;
-    } else {
-      Node *next = head->next;
-      while (next != NULL && head->data == next->data) {
-        head->next = next->next;
-        next = head->next;
-      }
-      removeDuplicates(head->next);
-    }
-    return head;
-  }
-
+  Node* removeDuplicates(Node *head)
+          {
+            Node *temp=head;
+              Node *previous;
+            if(head==NULL){
+                return head;
+            }
+             else{
+                 temp=head->next;
+                 while(temp!=NULL && head->data==temp->data){
+                     head->next=temp->next;
+                     previous=temp;
+                     temp =head->next;
+                     delete previous;
+                 }
+                 removeDuplicates(head->next);
+             }
+             return head;
+          }
   Node* insert(Node *head,int data)
   {
     Node* p=new Node(data);
@@ -117,10 +122,12 @@ int main()
   int T,data;
   cin >> T;
   while(T-->0){
-    cin> > data;
+    cin>> data;
     head=mylist.insert(head,data);
   }
   head=mylist.removeDuplicates(head);
 
   mylist.display(head);
+  cout<<endl;
+  return 0;
 }
