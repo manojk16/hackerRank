@@ -36,7 +36,7 @@ Sample Input 2
 Sample Output 2
 2
 */
-
+/*
 int main(){
     int n;
     cin >> n;
@@ -62,3 +62,48 @@ int main(){
     }
     cout << maxConsecutiveOnes << endl;
 }
+
+
+*/
+
+#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+ void intTobinary(int n){
+    vector<int> vect;    
+    int count=0;
+    int result=0;
+    while(n){
+        int remainder=n%2;
+        vect.push_back(remainder);
+        n=n/2;
+    }
+   
+
+    int len=vect.size();
+    for(int i=0;i<len;i++){
+      if(vect[i]==0){
+        count=0;
+      }
+        else{
+            count++;
+            result=max(result,count);
+        }
+    }
+    
+    cout<<result<<endl;
+     
+}
+
+
+int main()
+{
+    int n;
+    cin >> n;
+    intTobinary(n);
+
+    return 0;
+}
+
