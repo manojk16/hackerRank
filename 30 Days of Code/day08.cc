@@ -51,26 +51,31 @@ Sample Output
 sam=99912222
 Not found
 harry=12299933
-*/
-
-int main() {
+*/int main(){
   int n;
   cin >> n;
-  string lookupName;
-  string notFound;
-  notFound = "Not found";
-  map<string,string> addressBook;
-  for (int i = 0 ; i < n; i++) {
-    string name;
-    string phoneNumber;
-    cin >> name >> phoneNumber;
-    addressBook[name] = phoneNumber;
+  map<string,int> phonebook;
+  string str;
+  int value;
+
+  while(n--){
+    cin >> str  >> value;
+
+    phonebook.insert(make_pair(str,value));
   }
-  while(cin >> lookupName) {
-    if (addressBook.count(lookupName) > 0) {
-      cout << lookupName << "=" << addressBook[lookupName] << endl;
-    } else {
-      cout << notFound << endl;
+  /*for(map<string,int>::iterator iter=phonebook.begin();iter!=phonebook.end(); ++iter)
+  {
+    cout << "Key: " << iter->first << endl << "Values:" << iter->second << endl;
+  }*/
+  cin.ignore();
+  while(getline(cin,str)){
+    if(phonebook.find(str)!=phonebook.end()){
+      cout << str <<"="<< phonebook[str]<<endl;
+    }
+    else{
+      cout << "Not found "<<endl;
     }
   }
+
+  return 0;
 }
