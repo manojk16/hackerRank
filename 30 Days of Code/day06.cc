@@ -40,20 +40,17 @@ Sample Output
 Hce akr
 Rn ak
 */
-
 int main() {
-  int testCases;
-  string testValue;
-  cin >> testCases;
-  for (int testCase = 0; testCase < testCases ; testCase++ ) {
-    cin >> testValue;
-    for (int i = 0; i < testValue.size(); i = i+2) {
-      cout << testValue[i];
+   string str;
+    int T;
+    cin >> T;
+    while(T){
+      cin >> str;
+      for(int i=0;i<str.length();i+=2){
+        cout<<str[i];
+      }
+      
+      cout<<" ";
+      for(int j=1;j<str.length();j+=2){
+        cout<<str[j];
     }
-    cout << " ";
-    for (int i = 1; i < testValue.size(); i = i+2) {
-      cout << testValue[i];
-    }
-    cout << endl;
-  }
-}
